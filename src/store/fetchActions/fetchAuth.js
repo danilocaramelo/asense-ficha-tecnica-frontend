@@ -1,5 +1,6 @@
 import api from "../../config/httpRequest";
 import { setToken, setAuthotized } from "../ducks/auth";
+import paths from "../../constants/paths";
 import {
   setLocalStorageAuth,
   setLocalStorageToken,
@@ -19,12 +20,12 @@ export const getToken = (credentials) => {
   };
 };
 
-export const logout = history => {
+export const logout = (history) => {
   return (dispatch) => {
     setLocalStorageAuth(false);
     setLocalStorageToken(null);
     dispatch(setAuthotized(false));
     dispatch(setToken(""));
-    history.replace("/login");
+    history.replace(paths.LOGIN);
   };
 };

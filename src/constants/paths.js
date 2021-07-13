@@ -1,4 +1,4 @@
-export const LOGIN = "/login";
+export const LOGIN = "/";
 export const MENU = "/menu";
 
 // eslint-disable-next-line import/no-anonymous-default-export
