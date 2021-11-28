@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@600&display=swap");
+
+.page-home-content {
+  .home-title {
+    font-family: "Roboto Slab", sans-serif;
+    font-size: 100px;
+    color: #73353b;
+    font-weight: bold;
+  }
+
+  @media screen and (max-width: 720px) {
+    .home-title {
+      font-size: 50px;
+    }
+  }
+}

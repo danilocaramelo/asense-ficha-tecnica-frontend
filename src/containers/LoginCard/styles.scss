@@ -1,0 +1,27 @@
+.login-card-container {
+  .login-card {
+    height: 427px;
+    width: 470px;
+    background: #73353B;
+    border-radius: 50px;
+    box-shadow: 2px;
+  }
+
+  label {
+    color: #FC7C5F !important;
+  }
+
+  .ant-form-item-label
+    > label.ant-form-item-required:not(.ant-form-item-required-mark-optional)::before {
+        content: '';
+  }
+
+  .login-button {
+    margin-top: 20;
+    background-color: #FC7C5F;
+    width: 200px;
+    height: 35px;
+    borderRadius: 50px;
+    fontSize: 18px;
+  }
+}

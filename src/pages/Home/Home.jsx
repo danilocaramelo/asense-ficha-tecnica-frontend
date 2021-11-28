@@ -2,12 +2,12 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useHistory, Link } from "react-router-dom";
 import { Row, Layout, Col, Button } from "antd";
-import headerIcon from "../../assets/title.png";
 import footerImage from "../../assets/2622.jpg";
 import paths from "../../constants/paths";
-// import "./styles.css";
+import "./styles.scss";
+import { MainHeader } from "../../components";
 
-const { Header, Content } = Layout;
+const { Content } = Layout;
 
 export default function Login() {
   const history = useHistory();
@@ -20,22 +20,13 @@ export default function Login() {
   }, [authorized, history]);
 
   return (
-    <>
+    <div className="page-home-content">
       <Layout>
-        <Header
-          style={{
-            backgroundColor: "#73353b",
-            height: 90,
-            display: "flex",
-            alignItems: "center",
-          }}
-        >
-          <img alt="logo da Asense" src={headerIcon} style={{ height: 70 }} />
-        </Header>
+        <MainHeader />
         <Content>
           <Row align="middle" style={{ height: 540 }}>
             <Col span={8} offset={3}>
-              <div className="teste-fonte">Projeto Ficha Tecnica</div>
+              <div className="home-title">Projeto Ficha Tecnica</div>
             </Col>
             <Col span={8} offset={2}>
               <Row align="middle" justify="center">
@@ -90,7 +81,7 @@ export default function Login() {
                   marginBottom: 20,
                 }}
               >
-                Salário alto e diversos benefícios
+                Maior controle de seus custos e lucros
               </div>
               <div
                 style={{
@@ -99,11 +90,11 @@ export default function Login() {
                   color: "#fff",
                 }}
               >
-                Além do salário em dólar, a Revelo oferece contrato PJ com
-                diversos benefícios:
+                Com a ficha técnica você pode listar o preço de custo dos seus
+                produtos
               </div>
             </Col>
-            <Col span={4}>
+            <Col span={5}>
               <div
                 style={{
                   fontSize: 20,
@@ -112,12 +103,11 @@ export default function Login() {
                 }}
               >
                 * Férias pagas
-                <br /> * Plano de saúde
-                <br /> * Plano odontológico
-                <br /> * Vale flexível
-                <br /> * Cursos e treinamentos
-                <br /> * Equipamentos Desconto em academias
-                <br /> * Plataforma de saúde mental
+                <br /> * Serviço gratuito
+                <br /> * Cadastre quantos produtos quiser
+                <br /> * Mais controle do acesso de seus colaboradores
+                <br /> * Veja o lucro exato de cada produto
+                <br /> * Veja produtos com maior custo e benefício de venda
               </div>
             </Col>
             <Col>
@@ -130,6 +120,6 @@ export default function Login() {
           </Row>
         </Content>
       </Layout>
-    </>
+    </div>
   );
 }
