@@ -9,4 +9,10 @@
   .main-header-logo {
     height: 50%;
   }
+
+  @media screen and (max-width: 992px) {
+    .main-header-logo {
+      height: 35%;
+    }
+  }
 }
