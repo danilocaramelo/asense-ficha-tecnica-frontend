@@ -13,15 +13,12 @@ export default function LoginCard() {
 
   return (
     <div className="login-card-container">
-      <Card
-        className="login-card"
-        bordered={false}
-      >
+      <Card className="login-card" bordered={false}>
         <Row>
           <img
+            className="login-card-logo"
             alt="logo da Asense"
             src={titleImage}
-            style={{ width: "45%", margin: "auto" }}
           />
         </Row>
         <Row justify="center" style={{ marginTop: 40 }}>
@@ -65,16 +62,21 @@ export default function LoginCard() {
                   style={{ borderRadius: "50px", height: "45px" }}
                 />
               </Form.Item>
-              <Form.Item wrapperCol={{ offset: 6 }}>
-                <Button
-                  type="primary"
-                  htmlType="submit"
-                  className="login-button"
-                >
-                  Login
-                </Button>
+              <Form.Item>
+                <Row justify="center" style={{ marginTop: 20 }}>
+                  <Button
+                    type="primary"
+                    htmlType="submit"
+                    className="login-button"
+                  >
+                    Login
+                  </Button>
+                </Row>
               </Form.Item>
             </Form>
+            <Row justify="center">
+              <a href="">Esqueceu a senha?</a>
+            </Row>
           </Col>
         </Row>
       </Card>

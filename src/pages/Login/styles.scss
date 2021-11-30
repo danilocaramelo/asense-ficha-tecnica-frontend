@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@600&display=swap");
+
+.page-login-content {
+
+  .ant-layout-header {
+    padding: 0;
+  }
+
+  .login-header-header {
+    background-color: #73353b;
+    height: 64px;
+    display: flex;
+    // align-items: center;
+    opacity: 1;
+    z-index: 4;
+    position: relative;
+  }
+
+  .login-header-logo-background {
+    height: 64px;
+    width: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #EAAD9F;
+  }
+
+  .login-header-logo {
+    height: 50%;
+    z-index: 4;
+  }
+
+  .teste-fonte {
+    font-family: "Roboto Slab", sans-serif;
+    font-size: 100px;
+    color: #73353b;
+    font-weight: bold;
+  }
+}

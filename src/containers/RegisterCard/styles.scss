@@ -1,0 +1,76 @@
+.container-register-card-content {
+  .register-card {
+    height: 652px;
+    width: 930px;
+    background: #73353b;
+    border-radius: 50px;
+    box-shadow: 2px;
+    z-index: 4;
+  }
+
+  .ant-card-body {
+      padding: 0;
+  }
+
+  .register-card-header {
+    height: 49px;
+    background-color: #eaad9f;
+    border-radius: 50px 50px 0 0;
+  }
+
+  .register-card-header-logo {
+      height: 70%;
+      margin: auto;
+  }
+
+  .register-card-row {
+    margin-top: 26px;
+  }
+
+  input {
+      border-radius: 50px;
+  }
+
+  label {
+      color: #FC7C5F !important;
+  }
+
+  .ant-form-item {
+    margin-bottom: 0;
+  }
+
+  .register-card-button {
+    border-radius: 50px;
+    background-color: #FC7C5F;
+    color: #fff;
+    border: none;
+    width: 100%;
+    height: 36px;
+  }
+
+  .ant-btn:hover, .ant-btn:focus, .ant-btn:active {
+    color: #FC7C5F !important;
+    border-color: #FC7C5F !important;
+  }
+
+  @media screen and (max-width: 992px) {
+      .register-card {
+          width: 80%;
+          height: auto;
+          margin: 20px auto;
+      }
+
+      .register-card-row {
+        margin-top: 0;
+      }
+
+      .ant-form-item {
+        margin-bottom: 24px;
+      }
+
+      .register-card-button {
+        margin-bottom: 30px;
+        margin-top: 10px;
+      }
+  }
+}

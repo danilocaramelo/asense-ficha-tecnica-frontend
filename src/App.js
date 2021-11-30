@@ -2,6 +2,7 @@ import { Layout } from "antd";
 import { Routers } from "./components";
 import { addInterceptors } from "./config/interceptors";
 import api from "./config/httpRequest";
+import "./styles.scss";
 
 const { Content } = Layout;
 
