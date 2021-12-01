@@ -1,50 +1,52 @@
-import { Layout, Row, Tooltip, Button } from "antd";
-import { LogoutOutlined } from "@ant-design/icons";
-import { useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
-import asenseIcon from "../../assets/asense-icon.png";
-import { logout } from "../../store/fetchActions/fetchAuth";
+import { Layout, Menu } from "antd";
+import { HomeOutlined, UnorderedListOutlined } from "@ant-design/icons";
+import { useState } from "react";
+import { MainHeader } from "../../components";
+import "./styles.scss";
 
-const { Header, Content, Footer } = Layout;
+const { Sider, Content } = Layout;
 
 export default function BaseLayout({ children }) {
-  const history = useHistory();
-  const dispatch = useDispatch();
+  const [collapsed, setCollapsed] = useState(true);
 
-  function handleLogout() {
-    dispatch(logout(history));
+  function toggleCollapsed() {
+    setCollapsed(!collapsed);
   }
 
   return (
-    <Layout style={{ height: "100%" }}>
-      <Header style={{ backgroundColor: "#ffffff" }}>
-        <Row justify="space-between" align="middle" style={{ marginTop: 10 }}>
-          <img
-            src={asenseIcon}
-            alt="icone da asense"
-            style={{ height: 40 }}
-          ></img>
-          <Tooltip title="Logout">
-            <Button
-              shape="circle"
-              size="large"
-              icon={<LogoutOutlined />}
-              style={{ backgroundColor: "#ee7330", color: "#fff" }}
-              onClick={handleLogout}
-            />
-          </Tooltip>
-        </Row>
-      </Header>
-      <Content style={{ background: "#7b343c" }}>{children}</Content>
-      <Footer
-        style={{
-          textAlign: "center",
-          backgroundColor: "#4e2126",
-          color: "#ffffff",
-        }}
-      >
-        Ant Design ©2018 Created by Ant UED
-      </Footer>
+    <Layout className="component-base-layout-content">
+      <MainHeader logoutButton />
+      <Layout>
+        <Sider
+          collapsible
+          collapsed={collapsed}
+          onMouseEnter={toggleCollapsed}
+          onMouseLeave={toggleCollapsed}
+          trigger={null}
+        >
+          <Menu
+            className="base-layout-menu"
+            mode="vertical"
+            theme="dark"
+          >
+            <Menu.Item
+              className="base-layout-menu-item"
+              key="1"
+              icon={<HomeOutlined />}
+            >
+              Home
+            </Menu.Item>
+            <Menu.Item
+              className="base-layout-menu-item"
+              key="2"
+              icon={<UnorderedListOutlined />}
+            >
+              Lista de Produto
+            </Menu.Item>
+          </Menu>
+        </Sider>
+        <Content>{children}</Content>
+      </Layout>
     </Layout>
   );
 }
