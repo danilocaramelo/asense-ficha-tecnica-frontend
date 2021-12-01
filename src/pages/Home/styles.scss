@@ -5,4 +5,80 @@
     color: #73353b;
     font-weight: bold;
   }
+
+  .home-card {
+    height: 250px;
+    background-color: #eaad9f;
+    border-radius: 38px;
+
+    .ant-card-body {
+      height: 100%;
+    }
+
+    .ant-row {
+      height: 100%;
+    }
+
+    .home-card-company-icon {
+      font-size: 70px;
+      color: #73353b;
+    }
+
+    .home-card-company-title {
+      font-size: 30px;
+      color: #73353b;
+      font-weight: bold;
+    }
+
+    .home-card-team-icon {
+      color: #73353b;
+      font-size: 25px;
+    }
+
+    .home-card-workers-number {
+      font-size: 25px;
+      color: #73353b;
+      font-weight: bold;
+    }
+
+    .home-card-segment-image {
+      height: 60%;
+      position: absolute;
+      opacity: 0.4;
+      margin-top: 5%;
+    }
+
+    .home-card-segment-title {
+      color: #73353b;
+      font-size: 25px;
+      margin-top: 50%;
+    }
+  }
+
+  .home-second-row {
+    margin-top: 50px;
+  }
+
+  .home-link-buttons {
+    width: 100%;
+    background-color: #eaad9f;
+    height: 72px;
+    border-radius: 50px;
+    border: none;
+    margin-bottom: 20px;
+    color: #73353b;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: start;
+  }
+
+  .home-buttons-icon {
+    font-size: 23px;
+    margin-left: 25px;
+    margin-right: 5px;
+  }
+
+  .home-image {
+    width: 100%;
+  }
 }

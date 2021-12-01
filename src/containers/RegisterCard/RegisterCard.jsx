@@ -51,7 +51,7 @@ export default function RegisterCard() {
           <Row>
             <Col span={20} offset={2} lg={{ span: 6, offset: 2 }}>
               <Form.Item
-                name="port"
+                name="size"
                 label="Porte"
                 labelCol={{ span: 24 }}
               >
