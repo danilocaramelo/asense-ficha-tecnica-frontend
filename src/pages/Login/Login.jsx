@@ -30,7 +30,7 @@ export default function Login() {
               />
             </div>
           </Header>
-        <Row justify="center" align="middle" style={{ height: "90%" }}>
+        <Row justify="center" align="middle" style={{ marginTop: "15vh" }}>
           <LoginCard />
         </Row>
       </div>

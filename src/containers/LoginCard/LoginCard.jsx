@@ -36,7 +36,7 @@ export default function LoginCard() {
                 rules={[
                   {
                     required: true,
-                    message: "Please input your username!",
+                    message: "Por favor, insira o email cadastrado",
                   },
                 ]}
               >
@@ -53,7 +53,7 @@ export default function LoginCard() {
                 rules={[
                   {
                     required: true,
-                    message: "Please input your password!",
+                    message: "Por favor, insira sua senha",
                   },
                 ]}
               >

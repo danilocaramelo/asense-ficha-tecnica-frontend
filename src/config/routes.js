@@ -1,10 +1,10 @@
 import React from "react";
-import { Login, Home, InitialPage, Register } from "../pages";
+import { Login, Home, InitialPage, Register, ProductList } from "../pages";
 import paths from "../constants/paths";
 
 export const routes = [
   {
-    path: paths.HOME,
+    path: paths.INITIAL_PAGE,
     exact: true,
     title: () => "Initial Page",
     view: () => <InitialPage />,
@@ -25,10 +25,17 @@ export const routes = [
     onlyAuthorized: false,
   },
   {
-    path: paths.MENU,
+    path: paths.HOME,
     exact: true,
     title: () => "Home",
     view: () => <Home />,
+    onlyAuthorized: false,
+  },
+  {
+    path: paths.PRODUCT_LIST,
+    exact: true,
+    title: () => "Product List",
+    view: () => <ProductList />,
     onlyAuthorized: false,
   },
 ];

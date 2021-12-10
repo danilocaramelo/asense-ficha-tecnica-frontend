@@ -37,6 +37,13 @@
     color: #fc7c5f;
   }
 
+  .ant-btn-primary:active,
+  .ant-btn-primary:focus {
+    border-color: #fff;
+    background-color: #fff;
+    color: #73353b;
+  }
+
   .ant-btn-primary:hover {
     background: #fff;
   }

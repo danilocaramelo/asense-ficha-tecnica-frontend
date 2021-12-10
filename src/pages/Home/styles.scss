@@ -22,17 +22,24 @@
     .home-card-company-icon {
       font-size: 70px;
       color: #73353b;
+      width: 100%;
+      text-align: center;
+      margin-top: 10px;
     }
 
     .home-card-company-title {
-      font-size: 30px;
+      font-size: 1.5vw;
       color: #73353b;
       font-weight: bold;
+      width: 80%;
+      margin: 5px auto;
+      text-align: center;
     }
 
     .home-card-team-icon {
       color: #73353b;
       font-size: 25px;
+      margin-top: 10px;
     }
 
     .home-card-workers-number {
@@ -50,7 +57,7 @@
 
     .home-card-segment-title {
       color: #73353b;
-      font-size: 25px;
+      font-size: 1.2vw;
       margin-top: 50%;
     }
   }
@@ -70,6 +77,11 @@
     font-size: 18px;
     font-weight: bold;
     text-align: start;
+    padding-top: 20px !important;
+  }
+
+  a {
+    margin: 0;
   }
 
   .home-buttons-icon {
@@ -78,7 +90,46 @@
     margin-right: 5px;
   }
 
+  .ant-btn:hover, .ant-btn:focus {
+    color: #73353b;
+    border: 1px solid #73353b;
+  }
+
   .home-image {
     width: 100%;
+  }
+
+  @media screen and (max-width: 1200px) {
+    .home-title {
+      font-size: 50px;
+      text-align: center;
+      margin: 15px 0 15px;
+    }
+
+    .ant-card-body {
+      padding: 0;
+    }
+
+    .home-card {
+      height: 100px;
+
+      .home-card-company-icon {
+        font-size: 25px;
+      }
+
+      .home-card-segment-image {
+        top: 15%;
+      }
+
+      .home-card-segment-title {
+        color: #73353b;
+        font-size: 14px;
+        margin-top: 0;
+      }
+    }
+
+    .home-image {
+      margin-top: 20px;
+    }
   }
 }
