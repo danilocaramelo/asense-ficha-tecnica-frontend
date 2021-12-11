@@ -6,9 +6,12 @@ import {
   DeleteOutlined,
 } from "@ant-design/icons";
 import "./styles.scss";
+import { NewProductModal } from "../../containers";
+import { useState } from "react";
 
 export default function ProductList() {
   const Title = Typography;
+  const [newProductModalVisible, setNewProductModalVisible] = useState(false);
 
   const dataSource = [
     {
@@ -98,26 +101,35 @@ export default function ProductList() {
   ];
 
   return (
-    <BaseLayout>
-      <div className="page-product-list-content">
-        <Row>
-          <Title className="product-list-title">Lista de Produtos</Title>
-        </Row>
-        <Row className="product-list-table-row">
-          <Col span={24}>
-            <Row justify="end">
-              <Button className="product-list-new-product-button">
-                <PlusCircleOutlined /> Novo produto
-              </Button>
-            </Row>
-            <Table
-              className="product-list-table"
-              dataSource={dataSource}
-              columns={columns}
-            />
-          </Col>
-        </Row>
-      </div>
-    </BaseLayout>
+    <>
+      <BaseLayout>
+        <div className="page-product-list-content">
+          <Row>
+            <Title className="product-list-title">Lista de Produtos</Title>
+          </Row>
+          <Row className="product-list-table-row">
+            <Col span={24}>
+              <Row justify="end">
+                <Button
+                  className="product-list-new-product-button"
+                  onClick={() => setNewProductModalVisible(true)}
+                >
+                  <PlusCircleOutlined /> Novo produto
+                </Button>
+              </Row>
+              <Table
+                className="product-list-table"
+                dataSource={dataSource}
+                columns={columns}
+              />
+            </Col>
+          </Row>
+        </div>
+      </BaseLayout>
+      <NewProductModal
+        isModalVisible={newProductModalVisible}
+        setModalVisible={setNewProductModalVisible}
+      />
+    </>
   );
 }
