@@ -13,7 +13,7 @@ export default function Login() {
 
   useEffect(() => {
     if (authorized) {
-      history.replace("/menu");
+      history.replace("/home");
     }
   }, [authorized, history]);
 

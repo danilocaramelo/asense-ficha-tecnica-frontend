@@ -15,7 +15,7 @@ export default function InitialPage() {
 
   useEffect(() => {
     if (authorized) {
-      history.replace("/menu");
+      history.replace("/home");
     }
   }, [authorized, history]);
 
