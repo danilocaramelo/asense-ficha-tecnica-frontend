@@ -10,10 +10,14 @@ import segmentIcon from "../../assets/segmento.svg";
 import homeImage from "../../assets/home-image.svg";
 import "./styles.scss";
 import paths from "../../constants/paths";
+import { useState } from "react";
+import SupplyRegister from "../../containers/SupplyRegister";
 
 const Title = Typography;
 
 export default function Home() {
+  const [isSupplyModalOpen, setIsSupplyModalOpen] = useState(false);
+
   return (
     <div className="page-home-content">
       <BaseLayout>
@@ -70,6 +74,12 @@ export default function Home() {
               {<UnorderedListOutlined className="home-buttons-icon" />}Lista de
               Produtos
             </Button>
+            <Button
+              className="home-link-buttons"
+              onClick={() => setIsSupplyModalOpen(!isSupplyModalOpen)}
+            >
+              {<PlusCircleOutlined className="home-buttons-icon" />}Novo Insumo
+            </Button>
           </Col>
           <Col span={20} offset={2} xl={{ span: 7, offset: 2 }}>
             <img
@@ -80,6 +90,7 @@ export default function Home() {
           </Col>
         </Row>
       </BaseLayout>
+      <SupplyRegister isModalVisible={isSupplyModalOpen} handleOk={() => { }} handleCancel={() => setIsSupplyModalOpen(!isSupplyModalOpen)} />
     </div>
   );
 }
