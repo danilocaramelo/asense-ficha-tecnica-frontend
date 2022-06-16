@@ -6,19 +6,18 @@ import "./styles.scss";
 export default function NewProductModal({
   isModalVisible,
   handleCancel,
-  handleOk,
 }) {
   const [form] = Form.useForm();
 
   const onFinish = (values) => {
     postProducts(values);
+    handleCancel();
   };
   return (
     <Modal
       className="product-register-modal"
       title="Registro do Produto"
       visible={isModalVisible}
-      onOk={handleOk}
       onCancel={() => {
         handleCancel();
         form.resetFields();

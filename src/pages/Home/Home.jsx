@@ -100,7 +100,7 @@ export default function Home() {
         </Row>
       </BaseLayout>
       <SupplyRegister isModalVisible={isSupplyModalOpen} handleOk={() => { }} handleCancel={() => setIsSupplyModalOpen(!isSupplyModalOpen)} />
-      <NewProductModal isModalVisible={isProductModalOpen} handleOk={() => { }} handleCancel={() => setIsProductModalOpen(!isProductModalOpen)} />
+      <NewProductModal isModalVisible={isProductModalOpen} handleCancel={() => setIsProductModalOpen(!isProductModalOpen)} />
     </div>
   );
 }

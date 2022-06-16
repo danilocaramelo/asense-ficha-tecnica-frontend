@@ -6,7 +6,6 @@ import {
   DeleteOutlined,
 } from "@ant-design/icons";
 import "./styles.scss";
-import { NewProductModal } from "../../containers";
 import { useEffect, useState } from "react";
 import SupplyRegister from "../../containers/SupplyRegister";
 import { getSupplies } from "../../connection/supplies";

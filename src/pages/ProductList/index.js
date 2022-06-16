@@ -104,7 +104,6 @@ export default function ProductList() {
       <NewProductModal
         isModalVisible={newProductModalVisible}
         handleCancel={() => setNewProductModalVisible(!newProductModalVisible)}
-        handleOk={() => {}}
       />
     </>
   );
