@@ -1,4 +1,5 @@
-import { Modal, Form, Input, Row, Button } from "antd";
+import { Modal, Form, Input, Row, Button, Col } from "antd";
+import { postProducts } from "../../connection/products";
 import DynamicField from "../DynamicFields";
 import "./styles.scss";
 
@@ -9,6 +10,9 @@ export default function NewProductModal({
 }) {
   const [form] = Form.useForm();
 
+  const onFinish = (values) => {
+    postProducts(values);
+  };
   return (
     <Modal
       className="product-register-modal"
@@ -22,24 +26,26 @@ export default function NewProductModal({
       centered
       footer={null}
     >
-      <Form
-        form={form}
-        onFinish={(values) => {
-          console.log(values);
-          handleCancel();
-          form.resetFields();
-        }}
-      >
-        <Form.Item label="Nome do Insumo" name="name">
+      <Form form={form} onFinish={onFinish}>
+        <Form.Item
+          label="Nome do Produto"
+          name="nome"
+          rules={[{ required: true, message: "campo obrigatório" }]}
+        >
           <Input />
         </Form.Item>
         <DynamicField />
-        {/* <Form.Item initialValue={0} label="Custo Total" name="cost">
-          <Input disabled />
-        </Form.Item> */}
-        <Form.Item label="Valor de venda" name="saleValue">
-          <Input />
-        </Form.Item>
+        <Row justify="center">
+          <Col span={12}>
+            <Form.Item
+              label="Valor de venda"
+              name="vlVenda"
+              rules={[{ required: true, message: "campo obrigatório" }]}
+            >
+              <Input />
+            </Form.Item>
+          </Col>
+        </Row>
         <Row justify="center">
           <Button className="submit-button" htmlType="submit">
             Criar

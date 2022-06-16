@@ -1,6 +1,7 @@
 import React from "react";
 import { Login, Home, InitialPage, Register, ProductList } from "../pages";
 import paths from "../constants/paths";
+import { SupplyList } from "../pages/SupplyList";
 
 export const routes = [
   {
@@ -36,6 +37,13 @@ export const routes = [
     exact: true,
     title: () => "Product List",
     view: () => <ProductList />,
+    onlyAuthorized: false,
+  },
+  {
+    path: paths.SUPPLY_LIST,
+    exact: true,
+    title: () => "Supply List",
+    view: () => <SupplyList />,
     onlyAuthorized: false,
   },
 ];

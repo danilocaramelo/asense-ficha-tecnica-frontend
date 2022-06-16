@@ -51,6 +51,13 @@ export default function BaseLayout({ children }) {
               >
                 <Link to={paths.PRODUCT_LIST}>Lista de Produto</Link>
               </Menu.Item>
+              <Menu.Item
+                className="base-layout-menu-item"
+                key="3"
+                icon={<UnorderedListOutlined />}
+              >
+                <Link to={paths.SUPPLY_LIST}>Lista de Insumos</Link>
+              </Menu.Item>
             </Menu>
           </Sider>
         )}

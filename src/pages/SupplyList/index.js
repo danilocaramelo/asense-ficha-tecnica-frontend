@@ -7,52 +7,52 @@ import {
 } from "@ant-design/icons";
 import "./styles.scss";
 import { NewProductModal } from "../../containers";
-import { useState, useEffect } from "react";
-import { getProducts } from "../../connection/products";
+import { useEffect, useState } from "react";
+import SupplyRegister from "../../containers/SupplyRegister";
+import { getSupplies } from "../../connection/supplies";
 
-export default function ProductList() {
+export function SupplyList() {
   const Title = Typography;
-  const [newProductModalVisible, setNewProductModalVisible] = useState(false);
-  const [productsList, setProductsList] = useState([]);
+  const [newSupplyModalVisible, setNewSupplyModalVisible] = useState(false);
+  const [suplies, setSupplies] = useState([]);
 
-  async function fetchProducts() {
-    const response = await getProducts();
-    console.log(response);
-    setProductsList(response.data);
+  async function fetchSupplies() {
+    const response = await getSupplies();
+    setSupplies(response.data);
   }
   useEffect(() => {
-    fetchProducts();
+    fetchSupplies();
   }, []);
 
   const columns = [
     {
-      title: "Id do Produto",
-      dataIndex: "id",
-      key: "id",
-      align: "center",
-    },
-    {
-      title: "Nome do Produto",
+      title: "Nome do Insumo",
       dataIndex: "nome",
       key: "nome",
       align: "center",
     },
     {
-      title: "Custo de Produção",
-      dataIndex: "custoProduto",
-      key: "custoProduto",
+      title: "Quantidade",
+      dataIndex: "quantidade",
+      key: "quantidade",
       align: "center",
     },
     {
-      title: "Valor de Venda",
-      dataIndex: "vlVenda",
-      key: "vlVenda",
+      title: "Medida",
+      dataIndex: "medida",
+      key: "medida",
       align: "center",
     },
     {
-      title: "Lucro",
-      dataIndex: "lucroProduto",
-      key: "lucroProduto",
+      title: "Valor de compra",
+      dataIndex: "vlCompra",
+      key: "vlCompra",
+      align: "center",
+    },
+    {
+      title: "Custo por medida",
+      dataIndex: "custoPorMedida",
+      key: "custoPorMedida",
       align: "center",
     },
     {
@@ -80,30 +80,30 @@ export default function ProductList() {
       <BaseLayout>
         <div className="page-product-list-content">
           <Row>
-            <Title className="product-list-title">Lista de Produtos</Title>
+            <Title className="product-list-title">Lista de Insumos</Title>
           </Row>
           <Row className="product-list-table-row">
             <Col span={24}>
               <Row justify="end">
                 <Button
                   className="product-list-new-product-button"
-                  onClick={() => setNewProductModalVisible(true)}
+                  onClick={() => setNewSupplyModalVisible(true)}
                 >
-                  <PlusCircleOutlined /> Novo produto
+                  <PlusCircleOutlined /> Novo insumo
                 </Button>
               </Row>
               <Table
                 className="product-list-table"
-                dataSource={productsList}
+                dataSource={suplies}
                 columns={columns}
               />
             </Col>
           </Row>
         </div>
       </BaseLayout>
-      <NewProductModal
-        isModalVisible={newProductModalVisible}
-        handleCancel={() => setNewProductModalVisible(!newProductModalVisible)}
+      <SupplyRegister
+        isModalVisible={newSupplyModalVisible}
+        handleCancel={() => setNewSupplyModalVisible(!newSupplyModalVisible)}
         handleOk={() => {}}
       />
     </>

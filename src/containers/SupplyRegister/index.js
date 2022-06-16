@@ -1,4 +1,5 @@
 import { Button, Form, Input, Modal, Select } from "antd";
+import { postSupply  } from "../../connection/supplies";
 import "./styles.scss";
 
 export default function SupplyRegister({
@@ -8,6 +9,9 @@ export default function SupplyRegister({
 }) {
   const { Option } = Select;
   const [form] = Form.useForm();
+
+
+
   return (
     <Modal
       className="supply-register-modal"
@@ -21,25 +25,25 @@ export default function SupplyRegister({
       <Form
         form={form}
         onFinish={(values) => {
-          console.log(values);
+          postSupply(values);
           handleCancel();
           form.resetFields();
         }}
       >
-        <Form.Item label="Nome do Insumo" name="name">
+        <Form.Item label="Nome do Insumo" name="nome">
           <Input />
         </Form.Item>
-        <Form.Item label="Medida" name="mensure">
+        <Form.Item label="Medida" name="medida">
           <Select>
-            <Option value="grama">grama</Option>
-            <Option value="mililitro">mililitro</Option>
-            <Option value="unidade">unidade</Option>
+            <Option value={0}>grama</Option>
+            <Option value={1}>mililitro</Option>
+            <Option value={2}>unidade</Option>
           </Select>
         </Form.Item>
-        <Form.Item label="Quantidade" name="amount">
+        <Form.Item label="Quantidade" name="quantidade">
           <Input />
         </Form.Item>
-        <Form.Item label="Preço" name="price">
+        <Form.Item label="Preço" name="vlCompra">
           <Input />
         </Form.Item>
         <Button htmlType="submit">Criar</Button>

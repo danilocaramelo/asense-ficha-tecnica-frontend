@@ -81,6 +81,14 @@ export default function Home() {
             >
               {<PlusCircleOutlined className="home-buttons-icon" />}Novo Insumo
             </Button>
+            <Button
+              type="link"
+              href={paths.SUPPLY_LIST}
+              className="home-link-buttons"
+            >
+              {<UnorderedListOutlined className="home-buttons-icon" />}Lista de
+              Insumos
+            </Button>
           </Col>
           <Col span={20} offset={2} xl={{ span: 7, offset: 2 }}>
             <img

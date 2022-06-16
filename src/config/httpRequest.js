@@ -7,7 +7,7 @@ const getInstance = () => {
 
   const newInstance = axios.create({
     // baseURL: "https://asense-ficha-tecnica.herokuapp.com",
-    baseURL: "http://localhost:8080",
+    baseURL: "https://ft-service.herokuapp.com",
     withCredentials: false,
     headers: {
       "Content-Type": "application/json",
