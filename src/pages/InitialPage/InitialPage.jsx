@@ -51,7 +51,6 @@ export default function InitialPage() {
             </Col>
             <Col span={24} lg={{ span: 5 }}>
               <ul className="home-footer-list">
-                <li>Férias pagas</li>
                 <li>Serviço gratuito</li>
                 <li>Cadastre quantos produtos quiser</li>
                 <li>Mais controle do acesso de seus colaboradores</li>
