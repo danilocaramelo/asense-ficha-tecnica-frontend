@@ -1,0 +1,48 @@
+.ant-modal-content {
+    border-radius: 2rem !important;
+    background-color: #73353b !important;
+    /* background: red; */
+  }
+  
+  .product-register-modal {
+    .ant-modal-title {
+      color: #fc7c5f !important;
+    }
+  
+    .ant-modal-close-x {
+      color: #fc7c5f;
+    }
+  
+    .ant-modal-body,
+    .ant-modal-footer,
+    .ant-modal-header {
+      background-color: #73353b !important;
+      color: #fc7c5f;
+    }
+  
+    .ant-modal-header {
+      border-radius: 2rem 2rem 0 0;
+    }
+  
+    .ant-modal-body {
+      border-radius: 0 0 2rem 2rem;
+    }
+  
+    .ant-form-item-label > label {
+      color: #fc7c5f;
+    }
+  
+    .ant-input,
+    .ant-select-selector {
+      border-radius: 5rem !important;
+    }
+
+    .submit-button {
+        border-radius: 5rem;
+        color: white;
+        background-color: #fc7c5f;
+        border-color: #fc7c5f;
+        font-size: 15px;
+    }
+  }
+  

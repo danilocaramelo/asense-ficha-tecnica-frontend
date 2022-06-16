@@ -1,28 +1,51 @@
-import { Modal, Row, Form, Input, Typography } from "antd";
+import { Modal, Form, Input, Row, Button } from "antd";
+import DynamicField from "../DynamicFields";
 import "./styles.scss";
 
-export default function NewProductModal({ isModalVisible, setModalVisible }) {
+export default function NewProductModal({
+  isModalVisible,
+  handleCancel,
+  handleOk,
+}) {
+  const [form] = Form.useForm();
 
-    const Title = Typography;
   return (
-    <div className="containter-new-product-modal">
-      <Modal
-        visible={isModalVisible}
-        onCancel={() => setModalVisible(false)}
-        footer={false}
-        closable={false}
+    <Modal
+      className="product-register-modal"
+      title="Registro do Produto"
+      visible={isModalVisible}
+      onOk={handleOk}
+      onCancel={() => {
+        handleCancel();
+        form.resetFields();
+      }}
+      centered
+      footer={null}
+    >
+      <Form
+        form={form}
+        onFinish={(values) => {
+          console.log(values);
+          handleCancel();
+          form.resetFields();
+        }}
       >
-        <Form>
-          <Row>
-            <Form.Item name="productName" label="Nome do Produto">
-              <Input></Input>
-            </Form.Item>
-          </Row>
-          <Row>
-            <Title></Title>
-          </Row>
-        </Form>
-      </Modal>
-    </div>
+        <Form.Item label="Nome do Insumo" name="name">
+          <Input />
+        </Form.Item>
+        <DynamicField />
+        {/* <Form.Item initialValue={0} label="Custo Total" name="cost">
+          <Input disabled />
+        </Form.Item> */}
+        <Form.Item label="Valor de venda" name="saleValue">
+          <Input />
+        </Form.Item>
+        <Row justify="center">
+          <Button className="submit-button" htmlType="submit">
+            Criar
+          </Button>
+        </Row>
+      </Form>
+    </Modal>
   );
 }

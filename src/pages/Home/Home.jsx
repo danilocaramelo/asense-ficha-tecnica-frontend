@@ -12,11 +12,13 @@ import "./styles.scss";
 import paths from "../../constants/paths";
 import { useState } from "react";
 import SupplyRegister from "../../containers/SupplyRegister";
+import { NewProductModal } from "../../containers";
 
 const Title = Typography;
 
 export default function Home() {
   const [isSupplyModalOpen, setIsSupplyModalOpen] = useState(false);
+  const [isProductModalOpen, setIsProductModalOpen] = useState(false);
 
   return (
     <div className="page-home-content">
@@ -60,8 +62,7 @@ export default function Home() {
           <Col span={22} offset={1} xl={{ span: 10, offset: 2 }}>
             <Button
               className="home-link-buttons"
-              type="link"
-              href={paths.PRODUCT_LIST}
+              onClick={() => setIsProductModalOpen(!isProductModalOpen)}
             >
               {<PlusCircleOutlined className="home-buttons-icon" />} Novo
               Produto
@@ -91,6 +92,7 @@ export default function Home() {
         </Row>
       </BaseLayout>
       <SupplyRegister isModalVisible={isSupplyModalOpen} handleOk={() => { }} handleCancel={() => setIsSupplyModalOpen(!isSupplyModalOpen)} />
+      <NewProductModal isModalVisible={isProductModalOpen} handleOk={() => { }} handleCancel={() => setIsProductModalOpen(!isProductModalOpen)} />
     </div>
   );
 }

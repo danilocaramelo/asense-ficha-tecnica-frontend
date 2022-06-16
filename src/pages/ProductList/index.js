@@ -128,7 +128,8 @@ export default function ProductList() {
       </BaseLayout>
       <NewProductModal
         isModalVisible={newProductModalVisible}
-        setModalVisible={setNewProductModalVisible}
+        handleCancel={() => setNewProductModalVisible(!newProductModalVisible)}
+        handleOk={() => {}}
       />
     </>
   );
