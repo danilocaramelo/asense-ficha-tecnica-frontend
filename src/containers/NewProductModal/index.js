@@ -6,11 +6,15 @@ import "./styles.scss";
 export default function NewProductModal({
   isModalVisible,
   handleCancel,
+  fetchProducts,
 }) {
   const [form] = Form.useForm();
 
   const onFinish = (values) => {
     postProducts(values);
+    if (fetchProducts) {
+      fetchProducts();
+    }
     handleCancel();
   };
   return (

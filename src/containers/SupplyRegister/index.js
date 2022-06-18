@@ -1,23 +1,20 @@
 import { Button, Form, Input, Modal, Select } from "antd";
-import { postSupply  } from "../../connection/supplies";
+import { postSupply } from "../../connection/supplies";
 import "./styles.scss";
 
 export default function SupplyRegister({
   isModalVisible,
-  handleOk,
   handleCancel,
+  fetchSupplies,
 }) {
   const { Option } = Select;
   const [form] = Form.useForm();
-
-
 
   return (
     <Modal
       className="supply-register-modal"
       title="Registro de Insumo"
       visible={isModalVisible}
-      onOk={handleOk}
       onCancel={handleCancel}
       centered
       footer={null}
@@ -26,8 +23,11 @@ export default function SupplyRegister({
         form={form}
         onFinish={(values) => {
           postSupply(values);
-          handleCancel();
           form.resetFields();
+          if (fetchSupplies) {
+            fetchSupplies();
+          }
+          handleCancel();
         }}
       >
         <Form.Item label="Nome do Insumo" name="nome">

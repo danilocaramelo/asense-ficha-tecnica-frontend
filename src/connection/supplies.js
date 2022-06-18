@@ -11,3 +11,11 @@ export function postSupply(values) {
     console.log(e);
   }
 }
+
+export function deleteSupply(id) {
+  try {
+    api.delete(`insumo/remove/${id}`);
+  } catch (e) {
+    console.log(e);
+  }
+}

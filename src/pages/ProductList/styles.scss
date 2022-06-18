@@ -48,6 +48,10 @@
       color: #73353b;
     }
 
+    .ant-table-tbody > tr.ant-table-row-level-0:hover > td {
+      background: unset;
+    }
+
     .ant-table-thead {
       .ant-table-cell {
         font-weight: bold;
@@ -74,8 +78,13 @@
       }
     }
 
+    ant-table-row:hover {
+      background-color: aqua !important;
+    }
+
     .ant-pagination-item-active:focus-visible,
-    .ant-pagination-item-active:hover, .ant-pagination-item-active {
+    .ant-pagination-item-active:hover,
+    .ant-pagination-item-active {
       border-color: #73353b;
       color: #73353b;
     }

@@ -31,7 +31,7 @@ function DynamicField(props) {
                   <Row align="top">
                     <Col span={14} offset={1}>
                       <Form.Item
-                        name={[index, "insumo"]}
+                        name={[index, "id"]}
                         label={index === 0 ? "Name" : null}
                         labelCol={{ span: 24 }}
                         rules={[

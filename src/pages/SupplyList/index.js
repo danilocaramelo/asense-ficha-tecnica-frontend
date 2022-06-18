@@ -8,16 +8,26 @@ import {
 import "./styles.scss";
 import { useEffect, useState } from "react";
 import SupplyRegister from "../../containers/SupplyRegister";
-import { getSupplies } from "../../connection/supplies";
+import { deleteSupply, getSupplies } from "../../connection/supplies";
 
 export function SupplyList() {
   const Title = Typography;
   const [newSupplyModalVisible, setNewSupplyModalVisible] = useState(false);
   const [suplies, setSupplies] = useState([]);
+  const [loadingTable, setLoadingTable] = useState(false);
 
   async function fetchSupplies() {
-    const response = await getSupplies();
-    setSupplies(response.data);
+    setLoadingTable(true);
+    setTimeout(async () => {
+      try {
+        const response = await getSupplies();
+        setSupplies(response.data);
+      } catch (e) {
+        console.log(e);
+      } finally {
+        setLoadingTable(false);
+      }
+    }, 300);
   }
   useEffect(() => {
     fetchSupplies();
@@ -59,14 +69,19 @@ export function SupplyList() {
       dataIndex: "",
       key: "actions",
       align: "center",
-      render: () => {
+      render: (supply) => {
         return (
           <>
             <Button>
               <FormOutlined />
             </Button>
             <Button>
-              <DeleteOutlined />
+              <DeleteOutlined
+                onClick={() => {
+                  deleteSupply(supply.id);
+                  fetchSupplies();
+                }}
+              />
             </Button>
           </>
         );
@@ -95,6 +110,7 @@ export function SupplyList() {
                 className="product-list-table"
                 dataSource={suplies}
                 columns={columns}
+                loading={loadingTable}
               />
             </Col>
           </Row>
@@ -103,7 +119,7 @@ export function SupplyList() {
       <SupplyRegister
         isModalVisible={newSupplyModalVisible}
         handleCancel={() => setNewSupplyModalVisible(!newSupplyModalVisible)}
-        handleOk={() => {}}
+        fetchSupplies={fetchSupplies}
       />
     </>
   );

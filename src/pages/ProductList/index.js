@@ -8,17 +8,26 @@ import {
 import "./styles.scss";
 import { NewProductModal } from "../../containers";
 import { useState, useEffect } from "react";
-import { getProducts } from "../../connection/products";
+import { deleteProduct, getProducts } from "../../connection/products";
 
 export default function ProductList() {
   const Title = Typography;
   const [newProductModalVisible, setNewProductModalVisible] = useState(false);
   const [productsList, setProductsList] = useState([]);
+  const [loadingTable, setLoadingTable] = useState(false);
 
   async function fetchProducts() {
-    const response = await getProducts();
-    console.log(response);
-    setProductsList(response.data);
+    setLoadingTable(true);
+    setTimeout(async () => {
+      try {
+        const response = await getProducts();
+        setProductsList(response.data);
+      } catch (e) {
+        console.log(e);
+      } finally {
+        setLoadingTable(false);
+      }
+    }, 300)
   }
   useEffect(() => {
     fetchProducts();
@@ -42,31 +51,44 @@ export default function ProductList() {
       dataIndex: "custoProduto",
       key: "custoProduto",
       align: "center",
+      sorter: (a, b) => a.custoProduto - b.custoProduto,
+      render: (custoProduto) =>
+        custoProduto ? `R$ ${custoProduto?.toFixed(2)}` : "-",
     },
     {
       title: "Valor de Venda",
       dataIndex: "vlVenda",
       key: "vlVenda",
       align: "center",
+      sorter: (a, b) => a.vlVenda - b.vlVenda,
+      render: (vlVenda) => (vlVenda ? `R$ ${vlVenda.toFixed(2)}` : "-"),
     },
     {
       title: "Lucro",
       dataIndex: "lucroProduto",
       key: "lucroProduto",
       align: "center",
+      sorter: (a, b) => a.vlVenda - b.vlVenda,
+      render: (lucroProduto) =>
+        lucroProduto ? `R$ ${lucroProduto?.toFixed(2)}` : "-",
     },
     {
       title: "",
       dataIndex: "",
       key: "actions",
       align: "center",
-      render: () => {
+      render: (product) => {
         return (
           <>
             <Button>
               <FormOutlined />
             </Button>
-            <Button>
+            <Button
+              onClick={async () => {
+                await deleteProduct(product.id);
+                fetchProducts();
+              }}
+            >
               <DeleteOutlined />
             </Button>
           </>
@@ -96,6 +118,8 @@ export default function ProductList() {
                 className="product-list-table"
                 dataSource={productsList}
                 columns={columns}
+                pagination={{ pageSize: 5 }}
+                loading={loadingTable}
               />
             </Col>
           </Row>
@@ -104,6 +128,7 @@ export default function ProductList() {
       <NewProductModal
         isModalVisible={newProductModalVisible}
         handleCancel={() => setNewProductModalVisible(!newProductModalVisible)}
+        fetchProducts={fetchProducts}
       />
     </>
   );
