@@ -1,0 +1,21 @@
+.component-main-header-content {
+  .main-header-header {
+    background-color: #73353b;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 4;
+  }
+
+  .main-header-logo {
+    height: 50%;
+  }
+
+  @media screen and (max-width: 992px) {
+    .main-header-logo {
+      height: 35%;
+    }
+  }
+}

@@ -26,6 +26,6 @@ export const logout = (history) => {
     setLocalStorageToken(null);
     dispatch(setAuthotized(false));
     dispatch(setToken(""));
-    history.replace(paths.LOGIN);
+    history.replace(paths.INITIAL_PAGE);
   };
 };

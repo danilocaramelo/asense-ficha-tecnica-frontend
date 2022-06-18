@@ -1,4 +1,4 @@
-import { message } from "antd";
+import { message, notification } from "antd";
 
 export const addInterceptors = (http) => {
   http.interceptors.response.use(
@@ -9,13 +9,28 @@ export const addInterceptors = (http) => {
       if (typeof error.response !== "undefined") {
         switch (error?.response.status) {
           case 400:
-            message.error("Sinto muito, mas foi enviado algo errado");
+            notification.open({
+              message: "Algo foi enviado errado",
+              description: "Alguma coisa foi enviada errada :(",
+            });
+            break;
+          case 404:
+            notification.open({
+              message: "Alguma rota esta errada",
+              description: "O famoso 'not found'. Não encontramos sua rota :(",
+            });
             break;
           default:
-            message.error("Algo deu errado");
+            notification.open({
+              message: "Algo deu errado",
+              description: "Por alguma razão, algo deu errado :(",
+            });
         }
       } else {
-        message.error("Servidor não responde");
+        notification.open({
+          message: "Servidor não responde",
+          description: "Por alguma razão, o servidor não está respondendo :(",
+        });
       }
       return Promise.reject(error);
     }

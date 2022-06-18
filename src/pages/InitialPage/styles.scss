@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@600&display=swap");
+
+.page-initial-page-content {
+  .home-title {
+    font-family: "Roboto Slab", sans-serif;
+    font-size: 100px;
+    color: #73353b;
+    font-weight: bold;
+  }
+
+  .home-buttons {
+    background-color: #ee7330;
+    color: #fff;
+    border-radius: 30px;
+    height: 63px;
+    width: 210px;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: "Roboto Slab", sans-serif;
+    margin-right: 40px;
+  }
+
+  .ant-btn:hover, .ant-btn:focus {
+    color: #73353b;
+    border-color: #73353b;
+  }
+
+  .home-footer {
+    background-color: #fc7c5f;
+    height: 365px;
+  }
+
+  .home-footer-highlight-text {
+    font-size: 35px;
+    font-weight: bold;
+    font-family: "Roboto Slab", sans-serif;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+
+  .home-footer-text {
+    font-size: 25px;
+    font-family: "Roboto Slab", sans-serif;
+    color: #fff;
+  }
+
+  .home-footer-list {
+    font-size: 20px;
+    font-family: "Roboto Slab", sans-serif;
+    color: #fff;
+  }
+
+  .home-footer-image {
+    height: 100%;
+    width: 100%;
+  }
+
+  @media screen and (max-width: 992px) {
+    .home-title {
+      font-size: 40px;
+      width: 80%;
+      margin: auto;
+      text-align: center;
+    }
+
+    .home-buttons {
+      margin-bottom: 40px;
+      margin-right: 0;
+    }
+
+    .home-footer {
+      height: 100%;
+      background-image: linear-gradient(to right, #fc7c5f, #e2575c);
+    }
+
+    .home-footer-highlight-text {
+      font-size: 30px;
+      width: 65%;
+      margin: 40px auto 40px;
+      text-align: center;
+    }
+
+    .home-footer-text {
+      font-size: 20px;
+      width: 65%;
+      margin: 0px auto 40px;
+    }
+
+    .home-footer-list {
+      width: 65%;
+      margin: 0px auto 40px;
+    }
+
+    .home-footer-image {
+      height: 100%;
+      width: 100%;
+    }
+  }
+}

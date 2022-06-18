@@ -1,0 +1,70 @@
+.login-card-container {
+  .login-card {
+    height: 530px;
+    width: 570px;
+    background-color: #73353b;
+    border-radius: 50px;
+    box-shadow: 2px;
+    opacity: 1;
+    z-index: 4;
+  }
+
+  .login-card-logo {
+    width: 45%;
+    margin: auto;
+  }
+
+  label {
+    color: #fc7c5f !important;
+  }
+
+  .ant-form-item-label
+    > label.ant-form-item-required:not(.ant-form-item-required-mark-optional)::before {
+    content: "";
+  }
+
+  .login-button {
+    background-color: #fc7c5f;
+    width: 200px;
+    height: 35px;
+    border-radius: 50px;
+    font-size: 18px;
+    border: none;
+  }
+
+  .ant-btn:hover {
+    border-color: #fc7c5f;
+    color: #fc7c5f;
+  }
+
+  .ant-btn-primary:active,
+  .ant-btn-primary:focus {
+    border-color: #fff;
+    background-color: #fff;
+    color: #73353b;
+  }
+
+  .ant-btn-primary:hover {
+    background: #fff;
+  }
+
+  a {
+    color: #fc7c5f;
+  }
+
+  @media screen and (max-width: 992px) {
+    .login-card {
+      height: 500px;
+      width: 80%;
+      margin: auto;
+    }
+
+    .login-card-logo {
+      width: 60%;
+    }
+
+    .login-button {
+      width: 70%;
+    }
+  }
+}
